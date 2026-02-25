@@ -551,12 +551,14 @@ footer {
     }
 
     .card-top {
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap;
         gap: 8px;
     }
 
     .college-badge {
-        align-self: flex-start;
+        align-self: center;
+        margin-top: 4px;
     }
 
     .card-details {
