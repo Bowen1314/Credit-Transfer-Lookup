@@ -167,6 +167,13 @@ document.addEventListener('DOMContentLoaded', () => {
                             <div class="detail-value core-tag">${coreChips}</div>
                         </div>
                     </div>
+                    ${(d.si_code && d.ri_code && d.si_term && d.ri_term && d.course) ? `
+                    <div class="card-actions">
+                        <a href="https://njtransfer.org/artweb/crs-srch.cgi?Z~7906181772039765~${encodeURIComponent(d.si_code)}~${encodeURIComponent(d.ri_code)}~${encodeURIComponent(d.course.replace(/\\s+/g, ''))}~${encodeURIComponent(d.si_term)}~${encodeURIComponent(d.ri_term)}~" target="_blank" rel="noopener" class="njt-btn" title="View official equivalency on NJ Transfer">
+                            View on NJ Transfer ↗
+                        </a>
+                    </div>
+                    ` : ''}
                 </div>
             `;
         }).join('');

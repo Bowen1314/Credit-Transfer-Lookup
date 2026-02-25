@@ -398,6 +398,37 @@ main {
     font-weight: 500;
 }
 
+.card-actions {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px dashed var(--border);
+    display: flex;
+    justify-content: flex-end;
+}
+
+.njt-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: var(--surface);
+    color: var(--highlight);
+    border: 1px solid var(--border);
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.njt-btn:hover {
+    background-color: var(--highlight);
+    color: white;
+    border-color: var(--highlight);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+}
+
 .detail-value.highlight {
     color: var(--accent-light);
     font-weight: 700;
