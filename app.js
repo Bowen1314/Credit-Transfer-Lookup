@@ -142,8 +142,15 @@ document.addEventListener('DOMContentLoaded', () => {
             return `
                 <div class="result-card" style="animation-delay: ${Math.min(i * 30, 500)}ms">
                     <div class="card-top">
-                        <div class="course-name">${escapeHtml(d.name)}</div>
-                        <a class="college-badge" href="${COLLEGE_URLS[d.college] || '#'}" target="_blank" rel="noopener">${escapeHtml(d.college)}</a>
+                        <div class="course-title-group">
+                            <div class="course-name">${escapeHtml(d.name)}</div>
+                            <a class="college-inline-link" href="${COLLEGE_URLS[d.college] || '#'}" target="_blank" rel="noopener">${escapeHtml(d.college)} ↗</a>
+                        </div>
+                        ${(d.si_code && d.ri_code && d.si_term && d.ri_term && d.course) ? `
+                        <a class="college-badge" href="https://njtransfer.org/artweb/crs-srch.cgi?Z~7906181772039765~${encodeURIComponent(d.si_code)}~${encodeURIComponent(d.ri_code)}~${encodeURIComponent(d.course.replace(/\\s+/g, ''))}~${encodeURIComponent(d.si_term)}~${encodeURIComponent(d.ri_term)}~" target="_blank" rel="noopener" title="View official equivalency on NJ Transfer">
+                            View on NJ Transfer
+                        </a>
+                        ` : ''}
                     </div>
                     <div class="card-details">
                         <div class="detail-item">
@@ -167,13 +174,6 @@ document.addEventListener('DOMContentLoaded', () => {
                             <div class="detail-value core-tag">${coreChips}</div>
                         </div>
                     </div>
-                    ${(d.si_code && d.ri_code && d.si_term && d.ri_term && d.course) ? `
-                    <div class="card-actions">
-                        <a href="https://njtransfer.org/artweb/crs-srch.cgi?Z~7906181772039765~${encodeURIComponent(d.si_code)}~${encodeURIComponent(d.ri_code)}~${encodeURIComponent(d.course.replace(/\\s+/g, ''))}~${encodeURIComponent(d.si_term)}~${encodeURIComponent(d.ri_term)}~" target="_blank" rel="noopener" class="njt-btn" title="View official equivalency on NJ Transfer">
-                            View on NJ Transfer ↗
-                        </a>
-                    </div>
-                    ` : ''}
                 </div>
             `;
         }).join('');
