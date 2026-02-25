@@ -61,6 +61,66 @@ body {
    Header
    ============================================ */
 
+.promo-ad {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 6px 14px;
+    border-radius: 30px;
+    text-decoration: none;
+    z-index: 50;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow);
+}
+
+.promo-ad:hover {
+    transform: translateY(-2px);
+    border-color: var(--highlight);
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.2);
+}
+
+.promo-badge {
+    background: linear-gradient(135deg, #ef4444, #f59e0b);
+    color: white;
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    animation: pulse 2s infinite;
+}
+
+.promo-text {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    transition: color 0.2s ease;
+}
+
+.promo-ad:hover .promo-text {
+    color: var(--highlight);
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4);
+    }
+
+    70% {
+        box-shadow: 0 0 0 4px rgba(239, 68, 68, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+    }
+}
+
 header {
     position: relative;
     z-index: 1;
@@ -525,6 +585,16 @@ footer {
     .search-box input {
         font-size: 0.9rem;
         padding: 14px 10px;
+    }
+
+    .promo-ad {
+        top: 12px;
+        right: 12px;
+        padding: 4px 10px;
+    }
+
+    .promo-text {
+        font-size: 0.75rem;
     }
 
     .card-details {
