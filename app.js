@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const displayResults = results.slice(0, 200);
 
         resultsGrid.innerHTML = displayResults.map((d, i) => {
-            let coreChips = '<span style="color:var(--text-muted)">—</span>';
+            let coreChips = '<span style="color:var(--text-muted)">N/A</span>';
             if (d.core) {
                 const matches = d.core.toUpperCase().match(/(21C|AHO|AHP|AHQ|AHR|CCD|CCO|HST|ITR|WCD|WCR|NS|QQ|QR|SCL|WC)/g);
                 if (matches && matches.length > 0) {
