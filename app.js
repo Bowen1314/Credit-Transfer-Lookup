@@ -133,11 +133,18 @@ document.addEventListener('DOMContentLoaded', () => {
         const displayResults = results.slice(0, 200);
 
         resultsGrid.innerHTML = displayResults.map((d, i) => {
-            const coreChips = d.core
-                ? d.core.split(',').filter(c => c.trim()).map(c =>
-                    `<span class="core-chip">${c.trim()}</span>`
-                ).join('')
-                : '<span style="color:var(--text-muted)">—</span>';
+            let coreChips = '<span style="color:var(--text-muted)">—</span>';
+            if (d.core) {
+                const matches = d.core.toUpperCase().match(/(21C|AHO|AHP|AHQ|AHR|CCD|CCO|HST|ITR|WCD|WCR|NS|QQ|QR|SCL|WC)/g);
+                if (matches && matches.length > 0) {
+                    coreChips = [...new Set(matches)].map(c => `<span class="core-chip">${c}</span>`).join('');
+                } else {
+                    const parts = d.core.split(',').map(c => c.trim()).filter(Boolean);
+                    if (parts.length > 0) {
+                        coreChips = parts.map(c => `<span class="core-chip">${c}</span>`).join('');
+                    }
+                }
+            }
 
             return `
                 <div class="result-card" style="animation-delay: ${Math.min(i * 30, 500)}ms">
